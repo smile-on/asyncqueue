@@ -30,7 +30,7 @@ func BenchmarkLocking(b *testing.B) {
 	}
 }
 
-// ?; 347ns
+// 146ns; 347ns
 func BenchmarkLockingDefered(b *testing.B) {
 	n := b.N
 	var m []sync.Mutex
@@ -48,6 +48,7 @@ func BenchmarkLockingDefered(b *testing.B) {
 func BenchmarkChanWrite(b *testing.B) {
 	n := b.N
 	c := make(chan bool, n)
+	b.ResetTimer()
 	for i := 0; i < n; i++ {
 		c <- true
 	}

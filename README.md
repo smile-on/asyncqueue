@@ -9,6 +9,7 @@ Note, standard GO channel is fast FIFO buffer. The price for a speed is no visib
 
 * Pull calls are enqueued in case no data.
 * Push calls are enqueued in case no space.
+* Close releases all enqueued calls.
 
 Fare warning, this implementation is memory efficient and reasonably fast. However, it was not intended to serve massive queue with dynamic capacity or fight for a top speed under heavy race load.
 
